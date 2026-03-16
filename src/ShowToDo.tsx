@@ -1,5 +1,10 @@
+import { useState } from "react"
 
 export default function ShowToDo (props :any) {
+    const [options, setOptions] = useState<string>("hidden")
+    function handleToDoOptions() {
+        setOptions(() => "shown")
+    }
     
     const toDosEl = props.toDos.map((toDo :any) => {return (
         <div className="todo__item" key={toDo.id}>
@@ -14,7 +19,12 @@ export default function ShowToDo (props :any) {
                 ></input>
                 {toDo.item}
             </label>
-            <div className="todo-item__more__options"></div>
+            <div className="todo-item__more__options__button" onClick={handleToDoOptions}>
+                <div className={options}>
+                    <button id="edit"></button>
+                    <button id="delete"></button>
+                </div>
+            </div>
         </div>)
     })
     return (

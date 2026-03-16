@@ -238,8 +238,9 @@ body {
   outline-offset: var(--outline-offset);
 }
 
-.todo-item__more__options {
+.todo-item__more__options__button {
   background: url("./assets/images/more_vert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg");
+  position: relative;
   background-size: cover;
   height: 2em;
   width: 2em;
@@ -249,12 +250,20 @@ body {
   transition: background-color 0.2s ease-in-out;
 }
 
-.todo-item__more__options:hover{
+.todo-item__more__options__button:hover{
   background-color: var(--background-hover);
 }
 
-.todo-item__more__options:focus, .todo-item__more__options:focus-visible{
+.todo-item__more__options__button:focus, .todo-item__more__options__button:focus-visible{
   outline: var(--outline-primary);
+}
+
+.shown {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
 }
 
 .confirmation__dialogbox {
