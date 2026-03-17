@@ -259,13 +259,20 @@ body {
 }
 
 .shown {
-  display: block;
   position: absolute;
-  bottom: 0;
-  width: 50px;
-  height: 50px;
+  border: 1px solid red;
+  width: 8rem;
+  padding: 1em .5em;
+  transform-origin: top left;
+  transform: translate(-50%, 2rem);
+  z-index: 2;
 }
-
+.shown>button {
+  display: block;
+  width: 100%;
+  margin: .125em auto;
+  height: 2rem
+}
 .confirmation__dialogbox {
   background-color: var(--background-medium);
   outline: var(--border-primary);
