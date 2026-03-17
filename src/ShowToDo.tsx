@@ -1,12 +1,13 @@
-import { useState } from "react"
+import type { ToDo } from "./Content"
 
-export default function ShowToDo (props :any) {
-    const [options, setOptions] = useState<string>("hidden")
-    function handleToDoOptions() {
-        setOptions(() => "shown")
-    }
-    
-    const toDosEl = props.toDos.map((toDo :any) => {return (
+interface showToDoProps {
+    toDos: ToDo[]
+    handleCompletion: (id: number)=>void
+    handleMoreOptions: (id: number)=>void
+}
+
+export default function ShowToDo (props :showToDoProps) {
+    const toDosEl = props.toDos.map((toDo :ToDo) => {return (
         <div className="todo__item" key={toDo.id}>
             <label className={toDo.isCompleted? "todo__item-text todo--completed": "todo__item-text"}>
                 <input 
@@ -19,10 +20,10 @@ export default function ShowToDo (props :any) {
                 ></input>
                 {toDo.item}
             </label>
-            <div className="todo-item__more__options__button" onClick={handleToDoOptions}>
-                <div className={options}>
-                    <button id="edit"></button>
-                    <button id="delete"></button>
+            <div className="todo-item__more__options__button" onClick={()=>props.handleMoreOptions(toDo.id)}>
+                <div className={toDo.moreOptionsToggled?"shown":"hidden"}>
+                    <button></button>
+                    <button></button>
                 </div>
             </div>
         </div>)
