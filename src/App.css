@@ -166,6 +166,7 @@ body {
 }
 
 .todo__item {
+  position: relative;
   text-align: left;
   width: var(--max-width-responsive);
   height: 4rem;
@@ -240,7 +241,6 @@ body {
 
 .todo-item__more__options__button {
   background: url("./assets/images/more_vert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg");
-  position: relative;
   background-size: cover;
   height: 2em;
   width: 2em;
@@ -260,19 +260,34 @@ body {
 
 .shown {
   position: absolute;
-  border: 1px solid red;
-  width: 8rem;
-  padding: 1em .5em;
-  transform-origin: top left;
-  transform: translate(-50%, 2rem);
+  right: -.25rem;
+  top: 3.125rem;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .255rem;
+  align-items: center;
+  background-color: var(--background-medium);
+  outline: var(--border-primary);
+  border-radius: 1rem;
+  padding: .5rem 1rem;
 }
-.shown>button {
-  display: block;
-  width: 100%;
-  margin: .125em auto;
-  height: 2rem
+
+
+.more__options__button{
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: 500;
+  padding-block: .5em;
+  border: none;
+  background-color: var(--background-light);
+  outline: var(--border-primary);
+  width: 5rem;
+  margin: .25rem;
+  border-radius: .375rem;
 }
+
 .confirmation__dialogbox {
   background-color: var(--background-medium);
   outline: var(--border-primary);

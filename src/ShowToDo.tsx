@@ -21,10 +21,10 @@ export default function ShowToDo (props :showToDoProps) {
                 {toDo.item}
             </label>
             <div className="todo-item__more__options__button" onClick={()=>props.handleMoreOptions(toDo.id)}>
-                <div className={toDo.moreOptionsToggled?"shown":"hidden"}>
-                    <button></button>
-                    <button></button>
-                </div>
+            </div>
+            <div className={toDo.moreOptionsToggled?"shown":"hidden"}>
+                <button className="more__options__button more__options__button--edit">Edit</button>
+                <button className="more__options__button more__options__button--delete">Delete</button>
             </div>
         </div>)
     })
