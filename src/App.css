@@ -266,12 +266,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: .255rem;
+  gap: .125rem;
   align-items: center;
   background-color: var(--background-medium);
   outline: var(--border-primary);
   border-radius: 1rem;
-  padding: .5rem 1rem;
+  padding: .375rem .375rem;
 }
 
 
@@ -286,6 +286,42 @@ body {
   width: 5rem;
   margin: .25rem;
   border-radius: .375rem;
+  cursor: pointer;
+}
+
+/* .more__options__button:focus-visible {
+  outline-offset: var(--outline-offset);
+} */
+
+.more__options__button:hover, 
+.more__options__button:focus-visible {
+  width: calc(5rem + 2px);
+  transform: translateY(-2px);
+  box-shadow: 0px 5px 0 var(--primary-dark);
+  transition: width 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.more__options__button:active {
+  transform: translateY(1px);
+  box-shadow: 0px 2px 0 var(--primary-dark);
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.more__options__button--edit::before {
+  content: "";
+  background-image: url("./assets/images/pencil.svg");
+  background-size: contain;
+  margin-right: .375rem;
+  width: 1rem;
+  height: 1rem;
+}
+.more__options__button--delete::before {
+  content: "";
+  background-image: url("./assets/images/trash-2.svg");
+  background-size: contain;
+  margin-right: .375rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .confirmation__dialogbox {
