@@ -8,11 +8,13 @@ export interface ToDo {
     isCompleted: boolean
     moreOptionsToggled: boolean
     edittingTriggered: boolean
+    isdeleting: boolean
 }
 
-const DefaultTriggers: Pick<ToDo, 'moreOptionsToggled' | 'edittingTriggered'> = {
+const DefaultTriggers: Pick<ToDo, 'moreOptionsToggled' | 'edittingTriggered' | 'isdeleting'> = {
     moreOptionsToggled: false,
-    edittingTriggered: false
+    edittingTriggered: false,
+    isdeleting: false,
 }
 
 export default function Content () {
@@ -34,11 +36,26 @@ export default function Content () {
         setToDos(prev => prev.map(todo => todo.id === id ? { ...todo, moreOptionsToggled: !todo.moreOptionsToggled } : todo))
         
     }
+    
+    function handlesDeleting (id: number) {
+        setToDos(prev => prev.map(todo => todo.id === id ? { ...todo, moreOptionsToggled: !todo.moreOptionsToggled } : todo))
+        // setToDos(prev => prev.map(todo => todo.id === id ? { ...todo, moreOptionsToggled: !todo.isdeleting } : todo))
+        
+    }
+    
+    function handlesEditting (id: number) {
+        setToDos(prev => prev.map(todo => todo.id === id ? { ...todo, moreOptionsToggled: !todo.moreOptionsToggled } : todo))
+    }
 
     return (
         <section className="todo__working-area">
             <AddToDo addToDo={addToDo}/>
-            <ShowToDo toDos={toDos} handleCompletion={handleCompletion} handleMoreOptions={handleMoreOptions} />
+            <ShowToDo toDos={toDos} 
+            handleCompletion={handleCompletion} 
+            handleMoreOptions={handleMoreOptions}
+            handleEditting={handlesEditting}
+            handleDeleting={handlesDeleting}
+            />
         </section>
     )
 }

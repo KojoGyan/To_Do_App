@@ -4,6 +4,8 @@ interface showToDoProps {
     toDos: ToDo[]
     handleCompletion: (id: number)=>void
     handleMoreOptions: (id: number)=>void
+    handleEditting: (id: number)=>void
+    handleDeleting: (id: number)=>void
 }
 
 export default function ShowToDo (props :showToDoProps) {
@@ -23,8 +25,18 @@ export default function ShowToDo (props :showToDoProps) {
             <div className="todo-item__more__options__button" onClick={()=>props.handleMoreOptions(toDo.id)}>
             </div>
             <div className={toDo.moreOptionsToggled?"shown":"hidden"}>
-                <button className="more__options__button more__options__button--edit">Edit</button>
-                <button className="more__options__button more__options__button--delete">Delete</button>
+                <button 
+                className="more__options__button more__options__button--edit"
+                onClick={()=>props.handleEditting(toDo.id)}
+                >
+                    Edit    
+                </button>
+                <button 
+                className="more__options__button more__options__button--delete"
+                onClick={()=>props.handleDeleting(toDo.id)}
+                >
+                    Delete
+                </button>
             </div>
         </div>)
     })
